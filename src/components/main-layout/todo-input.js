@@ -7,10 +7,12 @@ import {add} from '../../redux/todo-slice';
 export function TodoInput() {
   const dispatch = useDispatch();
   const [todo, setTodo] = useState();
+  const [addBtnDisabled, setAddBtnDisabled] = useState(true);
 
   const _addTodo = () => {
     dispatch(add({key: new Date().getTime(), text: todo, completed: false}));
     setTodo('');
+    setAddBtnDisabled(true);
   };
 
   return (
@@ -18,12 +20,15 @@ export function TodoInput() {
       <TextInput
         style={styles.todoInput}
         placeholder={'Enter a new TO DO item'}
-        onChangeText={(todoText) => setTodo(todoText)}
+        onChangeText={(todoText) => {
+          setTodo(todoText);
+          setAddBtnDisabled(todoText.length === 0);
+        }}
         value={todo}
       />
-      <TouchableOpacity onPress={() => _addTodo()}>
+      <TouchableOpacity onPress={() => _addTodo()} disabled={addBtnDisabled}>
         <FontAwesome
-          style={[styles.icon, {color: 'green'}]}
+          style={[styles.icon, {color: addBtnDisabled ? 'gray' : 'green'}]}
           name={'plus-circle'}
         />
       </TouchableOpacity>
