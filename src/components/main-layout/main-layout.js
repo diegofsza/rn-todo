@@ -2,10 +2,10 @@ import React from 'react';
 import {SectionList, StyleSheet, Text, View} from 'react-native';
 import {useSelector} from 'react-redux';
 
-import {TodoItem} from './todo-item';
+import {Empty} from './empty';
 import {SectionHeader} from './section-header';
 import {TodoInput} from './todo-input';
-import {Empty} from './empty';
+import {TodoItem} from './todo-item';
 
 export function MainLayout() {
   const items = useSelector((state) => state.items);

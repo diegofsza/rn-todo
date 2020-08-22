@@ -1,8 +1,9 @@
+import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import React from 'react';
-import {remove, toggle} from '../../redux/todo-slice';
 import {useDispatch} from 'react-redux';
+
+import {remove, toggle} from '../../redux/todo-slice';
 
 export function TodoItem(props) {
   const {item} = props;

@@ -1,7 +1,8 @@
+import React, {useState} from 'react';
 import {StyleSheet, TextInput, TouchableOpacity, View} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
+
 import {add} from '../../redux/todo-slice';
 
 export function TodoInput() {
