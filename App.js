@@ -7,60 +7,21 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  SectionList,
-  StatusBar,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import {SafeAreaView, StatusBar} from 'react-native';
+import {Provider} from 'react-redux';
+
+import {store} from './src/redux/store';
+import {MainLayout} from './src/components/main-layout/main-layout';
 
 const App: () => React$Node = () => {
   return (
-    <>
+    <Provider store={store}>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={{flex: 1}}>
-        <View>
-          <Text style={styles.header}>RN Todo APP</Text>
-        </View>
-        <TextInput
-          style={styles.todoInput}
-          placeholder={'Enter a new TO DO item'}
-        />
-        <SectionList
-          sections={[
-            {
-              title: 'To Do',
-              data: [
-                {
-                  key: '1',
-                  text: 'Buy coffee',
-                },
-              ],
-            },
-            {
-              title: 'Done',
-              data: [
-                {
-                  key: '2',
-                  text: 'Pick up the boys!',
-                },
-              ],
-            },
-          ]}
-          renderSectionHeader={({section: {title}}) => <Text>{title}</Text>}
-          renderItem={({item}) => <Text>{item.text}</Text>}
-        />
+        <MainLayout />
       </SafeAreaView>
-    </>
+    </Provider>
   );
 };
-
-const styles = StyleSheet.create({
-  header: {},
-  todoInput: {},
-});
 
 export default App;
