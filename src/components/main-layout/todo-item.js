@@ -19,7 +19,9 @@ export function TodoItem(props) {
           name={item.completed ? 'check-circle' : 'circle-o'}
         />
       </TouchableOpacity>
-      <Text style={{flex: 1}}>{item.text}</Text>
+      <Text style={[{flex: 1}, item.completed ? styles.completed : undefined]}>
+        {item.text}
+      </Text>
       <TouchableOpacity onPress={() => _removeTodo(item.key)}>
         <FontAwesome
           style={[styles.icon, {color: 'red'}]}
@@ -40,5 +42,9 @@ const styles = StyleSheet.create({
   icon: {
     fontSize: 24,
     marginHorizontal: 10,
+  },
+  completed: {
+    color: 'gray',
+    textDecorationLine: 'line-through',
   },
 });

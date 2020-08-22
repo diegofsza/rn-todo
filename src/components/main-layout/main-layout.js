@@ -5,6 +5,7 @@ import {useSelector} from 'react-redux';
 import {TodoItem} from './todo-item';
 import {SectionHeader} from './section-header';
 import {TodoInput} from './todo-input';
+import {Empty} from './empty';
 
 export function MainLayout() {
   const items = useSelector((state) => state.items);
@@ -20,10 +21,13 @@ export function MainLayout() {
             data: items.filter((i) => !i.completed),
           },
           {
-            title: 'Done',
+            title: 'Completed',
             data: items.filter((i) => i.completed),
           },
         ]}
+        renderSectionFooter={({section}) =>
+          section.data.length === 0 && <Empty />
+        }
         renderSectionHeader={({section: {title}}) => (
           <SectionHeader title={title} />
         )}
