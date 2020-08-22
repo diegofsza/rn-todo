@@ -1,28 +1,6 @@
-import {configureStore, createSlice} from '@reduxjs/toolkit';
+import {configureStore} from '@reduxjs/toolkit';
 
-const todoSlice = createSlice({
-  name: 'todo',
-  initialState: {
-    todo: [
-      {
-        key: '1',
-        text: 'Buy coffee',
-      },
-    ],
-    done: [
-      {
-        key: '2',
-        text: 'Pick up the boys!',
-      },
-    ],
-    reducers: {
-      add: (state) => {},
-      remove: (state) => {},
-      toggle: (state) => {},
-    },
-  },
-});
+import reducer from './todo-slice';
 
-const {actions, reducer} = todoSlice;
-const {add, remove, toggle} = actions;
-export const store = configureStore({reducer});
+const store = configureStore({reducer: reducer});
+export {store};
