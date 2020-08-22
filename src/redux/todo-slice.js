@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-const todoSlice = createSlice({
-  name: 'todo',
+const todosSlice = createSlice({
+  name: 'todos',
   initialState: {
     items: [
       {
@@ -30,6 +30,6 @@ const todoSlice = createSlice({
   },
 });
 
-export const {add, remove, toggle} = todoSlice.actions;
+export const {add, remove, toggle} = todosSlice.actions;
 
-export default todoSlice.reducer;
+export default todosSlice.reducer;
