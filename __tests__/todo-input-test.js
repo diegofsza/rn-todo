@@ -5,6 +5,7 @@ import React from 'react';
 // import renderer from 'react-test-renderer';
 import {Provider} from 'react-redux';
 import {TextInput, TouchableOpacity} from 'react-native';
+import {act} from 'react-native-testing-library';
 import renderer from 'react-test-renderer';
 
 import {TodoInput} from '../src/components/main-layout/todo-input';
@@ -38,7 +39,7 @@ it('add button disabled if no text entered', () => {
 
 it('add button enabled if text entered', () => {
   const input = todoInputInstance.findByType(TextInput);
-  input.props.onChangeText('new todo');
+  act(() => input.props.onChangeText('new todo'));
   expect(
     todoInputInstance.findByType(TouchableOpacity).props.disabled,
   ).toBeFalsy();
