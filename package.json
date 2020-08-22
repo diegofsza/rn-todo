@@ -1,6 +1,6 @@
 {
-  "name": "RNTodo",
-  "version": "0.0.1",
+  "name": "React Native To Do",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
